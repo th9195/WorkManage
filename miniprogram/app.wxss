@@ -1,0 +1,87 @@
+page {
+  --bg: #f6f2e9;
+  --card: #fffdf9;
+  --ink: #232b27;
+  --ink-2: #6d7770;
+  --ink-3: #a3aca6;
+  --line: #eae2d3;
+  --primary: #2f6f5e;
+  --primary-soft: #e7f0ec;
+  --sunrise: #dd6a34;
+  --sunrise-soft: #fbeade;
+  --done: #3fa76b;
+  --undone: #e2695e;
+  --kid: #c98a1f;
+  --kid-soft: #fbf0d9;
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+input {
+  box-sizing: border-box;
+}
+
+.card {
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 28rpx;
+  box-shadow: 0 10rpx 30rpx rgba(74, 58, 32, 0.05);
+}
+
+.primary-btn {
+  height: 92rpx;
+  padding: 0 32rpx;
+  border-radius: 22rpx;
+  background: linear-gradient(135deg, #357a67, #2b6253);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn--off {
+  opacity: 0.4;
+}
+
+.ghost-btn {
+  height: 92rpx;
+  border-radius: 22rpx;
+  border: 1rpx solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink-2);
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-actions {
+  display: flex;
+  margin-top: 44rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.footer-actions .ghost-btn {
+  flex: 1;
+  height: 84rpx;
+  margin: 0 8rpx;
+  font-size: 25rpx;
+}
+
+.footer-actions .ghost-btn:first-child {
+  margin-left: 0;
+}
+
+.footer-actions .ghost-btn:last-child {
+  margin-right: 0;
+}

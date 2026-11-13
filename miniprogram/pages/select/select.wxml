@@ -1,0 +1,66 @@
+<view class="select-page">
+  <view class="page-head">
+    <view class="page-kicker">{{modeInfo.emoji}} {{modeInfo.title}}</view>
+    <view class="page-title">今天想完成哪些事？</view>
+    <view class="page-date">{{dateLabel}}</view>
+  </view>
+
+  <view class="picked card" wx:if="{{selected.length}}">
+    <view class="picked-head">
+      <text class="picked-title">已选 {{selected.length}} 项</text>
+      <text class="picked-hint">点一下即可取消</text>
+    </view>
+    <view class="chips">
+      <view class="chip chip--on" wx:for="{{selected}}" wx:key="key" data-key="{{item.key}}" bindtap="toggle">
+        <text class="chip-emoji">{{item.emoji}}</text>
+        <text>{{item.name}}</text>
+        <text class="chip-x">×</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="group" wx:for="{{groups}}" wx:key="title" wx:for-item="group">
+    <view class="group-title">{{group.title}}</view>
+    <view class="chips">
+      <view class="chip {{item.selected ? 'chip--on' : ''}}" wx:for="{{group.items}}" wx:key="key" data-key="{{item.key}}" bindtap="toggle">
+        <text class="chip-emoji">{{item.emoji}}</text>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title">自己加一件</view>
+    <view class="custom-row">
+      <input
+        class="custom-input"
+        placeholder="比如：背 20 个单词"
+        placeholder-class="custom-placeholder"
+        value="{{customName}}"
+        maxlength="16"
+        confirm-type="done"
+        bindinput="onCustomInput"
+        bindconfirm="addCustom"
+      />
+      <view class="custom-add {{customName ? '' : 'custom-add--off'}}" bindtap="addCustom">添加</view>
+    </view>
+    <view class="custom-tip">自定义任务会保存下来，之后可以直接选择</view>
+    <view class="chips chips--top" wx:if="{{customs.length}}">
+      <view class="chip {{item.selected ? 'chip--on' : ''}}" wx:for="{{customs}}" wx:key="key" data-key="{{item.key}}" bindtap="toggle">
+        <text class="chip-emoji">{{item.emoji}}</text>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+
+  <view class="footer">
+    <view class="footer-inner">
+      <view class="ghost-btn" bindtap="goHome">返回首页</view>
+      <view class="primary-btn {{selected.length ? '' : 'primary-btn--off'}}" bindtap="save">
+        {{saving ? '保存中…' : '完成 · ' + selected.length + ' 项'}}
+      </view>
+    </view>
+  </view>
+</view>

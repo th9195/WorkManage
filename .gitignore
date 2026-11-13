@@ -1,0 +1,15 @@
+# 依赖
+node_modules/
+miniprogram_npm/
+cloudfunctions/*/node_modules/
+
+# 微信开发者工具私有配置
+project.private.config.json
+
+# 系统 / 工具产物
+.DS_Store
+Thumbs.db
+.screenshots/
+.trae-html-share-packages/
+.pai/
+*.log

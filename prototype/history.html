@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>朝夕记行 · 我的过去</title>
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/pages2.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar-icons">●●● ▮▮</span>
+    </div>
+
+    <header class="topbar">
+      <a class="topbar-back" href="index.html">‹</a>
+      <div class="topbar-title">我的过去</div>
+      <a class="topbar-home" href="index.html">首页</a>
+    </header>
+
+    <main class="screen history">
+      <div class="seg" id="modeSeg">
+        <a class="seg-item is-on" href="history.html?mode=adult">我的小闯关</a>
+        <a class="seg-item" href="history.html?mode=kid">宝贝打卡站</a>
+      </div>
+
+      <div class="seg seg--sub" id="viewSeg">
+        <button class="seg-item is-on" data-view="week">按周看</button>
+        <button class="seg-item" data-view="month">按月看</button>
+      </div>
+
+      <div class="range">
+        <button class="range-btn" id="prevBtn">‹</button>
+        <div class="range-label" id="rangeLabel">11月10日 - 11月16日</div>
+        <button class="range-btn" id="nextBtn" disabled>›</button>
+      </div>
+
+      <section class="chart card">
+        <div class="chart-head">
+          <div class="chart-title">每日完成情况</div>
+          <div class="chart-legend">
+            <span class="legend-item"><i class="dot dot--done"></i>完成</span>
+            <span class="legend-item"><i class="dot dot--undone"></i>未完成</span>
+          </div>
+        </div>
+        <div class="chart-body">
+          <div class="y-axis" id="yAxis"><span>5</span><span>2.5</span><span>0</span></div>
+          <div class="plot-scroll">
+            <div class="plot" id="plot">
+              <div class="grid">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+              </div>
+              <div class="cols" id="cols"></div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-empty" id="chartEmpty" hidden>这段时间还没有记录，先完成今天的任务吧</div>
+      </section>
+
+      <section class="summary card">
+        <div class="sum-item"><div class="sum-num" id="sumDone">0</div><div class="sum-label">完成项数</div></div>
+        <div class="sum-divider"></div>
+        <div class="sum-item"><div class="sum-num" id="sumRate">0%</div><div class="sum-label">完成率</div></div>
+        <div class="sum-divider"></div>
+        <div class="sum-item"><div class="sum-num" id="sumDays">0</div><div class="sum-label">打卡天数</div></div>
+      </section>
+
+      <div class="history-foot">
+        <a class="btn btn-ghost" href="index.html">返回首页</a>
+      </div>
+    </main>
+  </div>
+  <script src="assets/shared.js"></script>
+  <script src="assets/history.js"></script>
+</body>
+</html>

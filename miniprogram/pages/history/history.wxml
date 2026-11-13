@@ -1,0 +1,80 @@
+<view class="history">
+  <view class="seg">
+    <view class="seg-item {{mode === 'adult' ? 'seg-item--on' : ''}}" data-mode="adult" bindtap="switchMode">我的小闯关</view>
+    <view class="seg-item {{mode === 'kid' ? 'seg-item--on' : ''}}" data-mode="kid" bindtap="switchMode">宝贝打卡站</view>
+  </view>
+
+  <view class="seg seg--sub">
+    <view class="seg-item {{view === 'week' ? 'seg-item--on' : ''}}" data-view="week" bindtap="switchView">按周看</view>
+    <view class="seg-item {{view === 'month' ? 'seg-item--on' : ''}}" data-view="month" bindtap="switchView">按月看</view>
+  </view>
+
+  <view class="range">
+    <view class="range-btn" bindtap="prev">‹</view>
+    <view class="range-label">{{rangeLabel}}</view>
+    <view class="range-btn {{canNext ? '' : 'range-btn--off'}}" bindtap="next">›</view>
+  </view>
+
+  <view class="chart card">
+    <view class="chart-head">
+      <view class="chart-title">每日完成情况</view>
+      <view class="chart-legend">
+        <view class="legend-item"><view class="dot dot--done"></view><text>完成</text></view>
+        <view class="legend-item"><view class="dot dot--undone"></view><text>未完成</text></view>
+      </view>
+    </view>
+
+    <view class="chart-body">
+      <view class="y-axis">
+        <text>{{axisMax}}</text>
+        <text>{{axisMid}}</text>
+        <text>0</text>
+      </view>
+      <scroll-view class="plot-scroll" scroll-x scroll-into-view="{{scrollInto}}" scroll-with-animation>
+        <view class="plot {{view === 'month' ? 'plot--month' : 'plot--week'}}" style="{{view === 'month' ? 'width: ' + plotWidth + 'rpx' : ''}}">
+          <view class="grid">
+            <view class="grid-line"></view>
+            <view class="grid-line"></view>
+            <view class="grid-line"></view>
+          </view>
+          <view class="cols">
+            <view class="col" wx:for="{{cols}}" wx:key="date" id="d-{{item.date}}">
+              <view class="bar-wrap">
+                <view class="bar" wx:if="{{item.total > 0}}">
+                  <view class="bar-undone" wx:if="{{item.undone > 0}}" style="height: {{item.undoneH}}rpx"></view>
+                  <view class="bar-done" wx:if="{{item.done > 0}}" style="height: {{item.doneH}}rpx"></view>
+                </view>
+                <view class="bar-none" wx:else></view>
+              </view>
+              <view class="col-date {{item.isToday ? 'col--today' : ''}}">{{item.dateLabel}}</view>
+              <view class="col-week {{item.isToday ? 'col--today' : ''}}">{{item.weekLabel}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="chart-empty" wx:if="{{!hasData}}">这段时间还没有记录，先完成今天的任务吧</view>
+  </view>
+
+  <view class="summary card">
+    <view class="sum-item">
+      <view class="sum-num">{{stats.done}}</view>
+      <view class="sum-label">完成项数</view>
+    </view>
+    <view class="sum-divider"></view>
+    <view class="sum-item">
+      <view class="sum-num">{{stats.rate}}%</view>
+      <view class="sum-label">完成率</view>
+    </view>
+    <view class="sum-divider"></view>
+    <view class="sum-item">
+      <view class="sum-num">{{stats.days}}</view>
+      <view class="sum-label">打卡天数</view>
+    </view>
+  </view>
+
+  <view class="footer-actions">
+    <view class="ghost-btn" bindtap="goHome">返回首页</view>
+  </view>
+</view>

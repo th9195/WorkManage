@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>朝夕记行 · 今日任务</title>
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/pages2.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar-icons">●●● ▮▮</span>
+    </div>
+
+    <header class="topbar">
+      <a class="topbar-back" href="index.html">‹</a>
+      <div class="topbar-title">今日任务</div>
+      <a class="topbar-home" href="index.html">首页</a>
+    </header>
+
+    <main class="screen today">
+      <div class="today-head">
+        <div class="today-hello" id="greeting">早上好，今天也为自己闯一关</div>
+        <div class="today-date" id="modeLine">🌅 我的小闯关 · 11月12日 周四</div>
+      </div>
+
+      <section class="progress card">
+        <div class="progress-top">
+          <div class="progress-num">
+            <span class="progress-done" id="doneCount">2</span>
+            <span class="progress-total">/<span id="totalCount">5</span></span>
+          </div>
+          <div class="progress-meta">
+            <div class="progress-label">今日完成</div>
+            <div class="progress-percent" id="percent">40%</div>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-tip" id="progressTip">再完成 3 件就大功告成</div>
+      </section>
+
+      <div class="task-list" id="taskList"></div>
+
+      <div class="today-actions">
+        <a class="btn btn-ghost" href="index.html">返回首页</a>
+        <a class="btn btn-ghost" id="adjustBtn" href="select.html?mode=adult">调整任务</a>
+        <a class="btn btn-ghost" id="historyBtn" href="history.html?mode=adult">我的过去</a>
+      </div>
+    </main>
+  </div>
+  <script src="assets/shared.js"></script>
+  <script src="assets/today.js"></script>
+</body>
+</html>

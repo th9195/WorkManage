@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/select/select",
+    "pages/today/today",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f2e9",
+    "navigationBarTitleText": "朝夕记行",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f2e9"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

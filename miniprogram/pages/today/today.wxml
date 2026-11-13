@@ -1,0 +1,56 @@
+<view class="today">
+  <view class="today-head">
+    <view class="today-hello">{{greeting}}，{{modeInfo.motto}}</view>
+    <view class="today-date">{{modeInfo.emoji}} {{modeInfo.title}} · {{dateLabel}}</view>
+  </view>
+
+  <view class="progress card">
+    <view class="progress-top">
+      <view class="progress-num">
+        <text class="progress-done">{{doneCount}}</text>
+        <text class="progress-total">/{{total}}</text>
+      </view>
+      <view class="progress-meta">
+        <view class="progress-label">今日完成</view>
+        <view class="progress-percent">{{percent}}%</view>
+      </view>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{percent}}%"></view>
+    </view>
+    <view class="progress-tip progress-tip--done" wx:if="{{total > 0 && allDone}}">今天的闯关全部完成 🎉</view>
+    <view class="progress-tip" wx:elif="{{total > 0}}">再完成 {{leftCount}} 件就大功告成</view>
+    <view class="progress-tip" wx:else>还没有安排任务</view>
+  </view>
+
+  <view class="task-list" wx:if="{{tasks.length}}">
+    <view
+      class="task {{item.done ? 'task--done' : ''}}"
+      wx:for="{{tasks}}"
+      wx:key="key"
+      data-index="{{index}}"
+      bindtap="toggle"
+      hover-class="task--hover"
+    >
+      <view class="tick {{item.done ? 'tick--on' : ''}}">
+        <text class="tick-mark" wx:if="{{item.done}}">✓</text>
+      </view>
+      <view class="task-body">
+        <view class="task-name">{{item.emoji}} {{item.name}}</view>
+        <view class="task-sub">{{item.done ? '已完成' : '待完成'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty card" wx:else>
+    <view class="empty-emoji">🗒️</view>
+    <view class="empty-text">今天还没有安排任务</view>
+    <view class="primary-btn empty-btn" bindtap="goAdjust">去安排任务</view>
+  </view>
+
+  <view class="footer-actions">
+    <view class="ghost-btn" bindtap="goHome">返回首页</view>
+    <view class="ghost-btn" bindtap="goAdjust">调整任务</view>
+    <view class="ghost-btn" bindtap="goHistory">我的过去</view>
+  </view>
+</view>

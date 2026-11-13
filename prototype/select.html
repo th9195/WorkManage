@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>朝夕记行 · 安排今天</title>
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/pages.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar-icons">●●● ▮▮</span>
+    </div>
+
+    <header class="topbar">
+      <a class="topbar-back" href="index.html">‹</a>
+      <div class="topbar-title">安排今天</div>
+      <a class="topbar-home" href="index.html">首页</a>
+    </header>
+
+    <main class="screen select">
+      <div class="page-head">
+        <div class="page-kicker" id="modeKicker">🌅 我的小闯关</div>
+        <div class="page-title">今天想完成哪些事？</div>
+        <div class="page-date" id="pageDate">11月12日 周四</div>
+      </div>
+
+      <section class="picked card">
+        <div class="picked-head">
+          <span class="picked-title">已选 <span id="pickedCount">5</span> 项</span>
+          <span class="picked-hint">点一下即可取消</span>
+        </div>
+        <div class="chips" id="pickedChips"></div>
+      </section>
+
+      <div id="presetGroups"></div>
+
+      <section class="group">
+        <div class="group-title">自己加一件</div>
+        <div class="custom-row">
+          <input class="custom-input" id="customInput" placeholder="比如：背 20 个单词" maxlength="16" />
+          <button class="custom-add is-off" id="customAdd">添加</button>
+        </div>
+        <div class="custom-tip">自定义任务会保存下来，之后可以直接选择</div>
+        <div class="chips chips--top" id="customChips"></div>
+      </section>
+
+      <div class="select-footer">
+        <a class="btn btn-ghost" href="index.html">返回首页</a>
+        <a class="btn btn-primary" id="finishBtn" href="today.html?mode=adult">完成 · 5 项</a>
+      </div>
+    </main>
+  </div>
+  <script src="assets/shared.js"></script>
+  <script src="assets/select.js"></script>
+</body>
+</html>

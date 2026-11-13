@@ -1,0 +1,41 @@
+<view class="home">
+  <view class="glow"></view>
+
+  <view class="hero">
+    <view class="hero-mark">朝夕记行</view>
+    <view class="hero-slogan">有计划，总比没有计划强</view>
+    <view class="hero-date">{{todayLabel}}</view>
+  </view>
+
+  <view class="entries">
+    <view class="entry entry--adult" data-mode="adult" bindtap="goMode" hover-class="entry--hover">
+      <view class="entry-head">
+        <view class="entry-emoji">🌅</view>
+        <view class="entry-title">我的小闯关</view>
+      </view>
+      <view class="entry-desc">给今天的自己，安排几件想做好的事</view>
+      <view class="entry-foot">
+        <text class="entry-stat">{{stats.adult.text}}</text>
+        <text class="entry-go">开始 ›</text>
+      </view>
+    </view>
+
+    <view class="entry entry--kid" data-mode="kid" bindtap="goMode" hover-class="entry--hover">
+      <view class="entry-head">
+        <view class="entry-emoji">🧸</view>
+        <view class="entry-title">宝贝打卡站</view>
+      </view>
+      <view class="entry-desc">每完成一件事，就点亮一颗小星星</view>
+      <view class="entry-foot">
+        <text class="entry-stat">{{stats.kid.text}}</text>
+        <text class="entry-go">开始 ›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="home-actions">
+    <view class="home-link" bindtap="goHistory" hover-class="home-link--hover">我的过去</view>
+  </view>
+
+  <view class="home-foot">每天记录一点点</view>
+</view>

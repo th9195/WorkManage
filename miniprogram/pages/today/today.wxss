@@ -1,0 +1,177 @@
+.today {
+  min-height: 100vh;
+  padding: 48rpx 40rpx 60rpx;
+}
+
+.today-head {
+  margin-bottom: 32rpx;
+}
+
+.today-hello {
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}
+
+.today-date {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.progress {
+  padding: 34rpx 32rpx;
+  background: linear-gradient(150deg, #ffffff 0%, #edf5f1 100%);
+}
+
+.progress-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.progress-num {
+  display: flex;
+  align-items: baseline;
+}
+
+.progress-done {
+  font-size: 76rpx;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+}
+
+.progress-total {
+  margin-left: 4rpx;
+  font-size: 34rpx;
+  color: var(--ink-3);
+}
+
+.progress-meta {
+  text-align: right;
+}
+
+.progress-label {
+  font-size: 22rpx;
+  color: var(--ink-3);
+}
+
+.progress-percent {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.progress-bar {
+  margin-top: 26rpx;
+  height: 16rpx;
+  border-radius: 999rpx;
+  background: #e6e0d3;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #4fb37d, #2f6f5e);
+  transition: width 0.35s ease;
+}
+
+.progress-tip {
+  margin-top: 18rpx;
+  font-size: 23rpx;
+  color: var(--ink-2);
+}
+
+.progress-tip--done {
+  color: var(--done);
+  font-weight: 600;
+}
+
+.task-list {
+  margin-top: 32rpx;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 28rpx;
+  margin-bottom: 16rpx;
+  border-radius: 24rpx;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  box-shadow: 0 6rpx 18rpx rgba(74, 58, 32, 0.04);
+}
+
+.task--hover {
+  background: #fdfaf3;
+}
+
+.tick {
+  width: 56rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  border: 3rpx solid #d9d2c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.tick--on {
+  background: var(--done);
+  border-color: var(--done);
+}
+
+.tick-mark {
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-name {
+  font-size: 30rpx;
+}
+
+.task-sub {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: var(--ink-3);
+}
+
+.task--done .task-name {
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+
+.task--done .task-sub {
+  color: var(--done);
+}
+
+.empty {
+  margin-top: 36rpx;
+  padding: 70rpx 40rpx;
+  text-align: center;
+}
+
+.empty-emoji {
+  font-size: 64rpx;
+}
+
+.empty-text {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: var(--ink-2);
+}
+
+.empty-btn {
+  margin-top: 32rpx;
+}

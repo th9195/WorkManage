@@ -1,6 +1,15 @@
 const PLANS = 'daily_plans'
 const TEMPLATES = 'task_templates'
 
+// 等待云开发初始化完成（含集合创建），避免页面启动竞态
+function ensureCloud() {
+  const app = getApp()
+  if (!app || !app.globalData || !app.globalData.cloudReady) {
+    return Promise.reject(new Error('云开发尚未初始化'))
+  }
+  return app.globalData.cloudReady
+}
+
 function db() {
   return wx.cloud.database()
 }
@@ -11,6 +20,7 @@ function serverDate() {
 
 // 读取某天某个模式下的计划
 async function getPlan(date, mode) {
+  await ensureCloud()
   const res = await db().collection(PLANS)
     .where({ date: date, mode: mode })
     .limit(1)
@@ -20,6 +30,7 @@ async function getPlan(date, mode) {
 
 // 新增或更新某天的计划
 async function upsertPlan(date, mode, tasks) {
+  await ensureCloud()
   const existing = await getPlan(date, mode)
   const done = tasks.filter(function (task) { return task.done }).length
   const data = {
@@ -43,6 +54,7 @@ async function upsertPlan(date, mode, tasks) {
 
 // 读取日期区间内的计划（小程序端单次最多 20 条，这里自动翻页）
 async function listPlans(startDate, endDate, mode) {
+  await ensureCloud()
   const command = db().command
   const where = {
     mode: mode,
@@ -67,6 +79,7 @@ async function listPlans(startDate, endDate, mode) {
 
 // 自定义任务模板
 async function listTemplates(mode) {
+  await ensureCloud()
   const res = await db().collection(TEMPLATES)
     .where({ mode: mode })
     .orderBy('createdAt', 'desc')
@@ -76,6 +89,7 @@ async function listTemplates(mode) {
 }
 
 async function addTemplate(mode, name, emoji) {
+  await ensureCloud()
   const exist = await db().collection(TEMPLATES)
     .where({ mode: mode, name: name })
     .limit(1)
